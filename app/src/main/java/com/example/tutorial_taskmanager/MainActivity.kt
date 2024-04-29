@@ -7,7 +7,9 @@ import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.fillMaxHeight
 import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Surface
@@ -48,27 +50,22 @@ class MainActivity : ComponentActivity() {
 
 @Composable
 fun ScreenTaskCompleted(mainText: String, subText: String, modifier: Modifier = Modifier) {
-    val image = painterResource(R.drawable.ic_task_completed)
 
     Column(
         verticalArrangement = Arrangement.Center,
         horizontalAlignment = Alignment.CenterHorizontally,
         modifier = modifier
+            .fillMaxWidth() //Add
+            .fillMaxHeight() //Add
 
     ){
         Image(
-            painter = image,
-            contentDescription = null,
-            modifier = Modifier
-
+            painter = painterResource(R.drawable.ic_task_completed),
+            contentDescription = null
         )
         Text(
             text = mainText,
-            style = TextStyle(
-                fontWeight = FontWeight.Bold,
-                fontSize = 24.sp
-            ),
-            fontSize = 24.sp,
+            fontWeight = FontWeight.Bold,
             textAlign = TextAlign.Center,
             modifier = Modifier
                 .padding(top = 24.dp)
